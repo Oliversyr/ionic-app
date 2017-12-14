@@ -1,17 +1,44 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+
+
+<ion-content class="page-home">
+    <div class="act-home">
+        <div class="act-home-index">
+            <div class="act-home-title">日常账本</div>
+            <div class="act-home-show">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col *ngFor="let showKey of showKeys, i as index">
+                            <div>{{showKey.label}}</div>
+                            <div>{{showKey.value}}</div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <div class="act-show-panel" act-shake>
+
+            </div>
+            
+        </div>
+        <div class="act-home-list">
+            <ul class="act-home-list-container">
+                <li class="act-home-list-item act-3d-container" *ngFor="let item of accountList, i as index">
+                    <div class="act-3d-layer" [act-offset]="'layer'">
+                        <div class="act-home-list-item-content act-3d-front">
+                            <div>{{item.label}}</div>
+                        </div>
+                        <div class="act-home-list-item-content act-3d-back" [act-offset]="'back'">
+                            <div>{{item.label}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </ion-content>

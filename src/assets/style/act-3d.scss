@@ -1,0 +1,47 @@
+/**
+ * 3d动画场景
+ * @Created by: yangr 
+ * @Created Date: 2017-12-13 10:28:25 
+ * @Last Modified by: yangr
+ * @Last Modified time: 2017-12-13 15:24:13
+ */
+
+.act-3d-container {
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+    perspective-origin: center;
+    
+    .act-3d-layer {
+        transform-style: preserve-3d;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: rotateX(0deg) translateY(0) translateZ(0);
+        transition:  transform 0.5s ease;
+        cursor: pointer;
+
+        &:hover {
+            transform: rotateX(90deg) translateY(-50%) translateZ(50px);
+        }
+
+        .act-3d-front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateX(0deg);
+        }
+
+        .act-3d-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateX(-90deg) translateY(50%) translateZ(50px);
+        }
+    }
+}
